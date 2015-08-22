@@ -1,24 +1,5 @@
 var fs = require('fs');
-if(fs.existsSync('/Users/vramos/Dropbox/Development/FileWriter/README.md')){
-  console.log('exists')
-}
-// fs.open("README.md", "r+", function(err){
-//   if(err){
-//     console.log("Error opening file: " + err);
-//   }
-// })
-// var a = {
-//   name: "Name",
-//   lastname: "Last Name"
-// }
-// a = JSON.stringify(a);
-// fs.appendFile("/Users/vramos/Workspace/iOfficeConnect/src/main/webapp/include/javascript/i18n/en_GB.json", a, function(err) {
-//     if(err) {
-//         return console.log(err);
-//     }
-//
-//     console.log("The file was savedd!");
-// });
+
 var localeFileData;
 fs.readFile("/Users/vramos/Workspace/iOfficeConnect/src/main/webapp/include/javascript/i18n/en_GB.json", function(err, data) {
     if(err) {

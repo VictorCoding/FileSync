@@ -1,0 +1,22 @@
+{
+  "name": "FileSync",
+  "version": "0.0.0",
+  "homepage": "https://github.com/VictorCoding/FileSync",
+  "authors": [
+    "VictorCoding <victor.ramos@gmail.com>"
+  ],
+  "description": "Write to files and check if they're in sync",
+  "main": "app/index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.4.4",
+    "bootstrap": "~3.3.5"
+  }
+}
