@@ -4,8 +4,16 @@
   angular
         .module('FileSync', [])
         .controller('MainCtrl', MainCtrl);
-        
-  function MainCtrl(){
-    var vm = this;
+            
+  function MainCtrl(FileManager){
+    var mc = this;
+    mc.FilesToWriteTo = [];    
+    
+    mc.addFile = function addFile(){      
+      mc.FileExists = FileManager.exists(mc.FileName);
+    };
+    
   }
+  
+  
 })();

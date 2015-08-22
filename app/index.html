@@ -10,13 +10,14 @@
     </header>
     <div class="container">
       <form name="filePathsForm">
-        <label>File Path <input class="form-control" id="filepath" name="filepath" type="input"></label>
-        <button class="btn btn-success" onclick="writeToFile()">Add</button>      
+        <label>File Path <input class="form-control" id="filepath" name="filepath" type="input" ng-model="mc.FileName"></label>
+        <button class="btn btn-success" ng-click="mc.addFile()">Add</button>
+        <button ng-show="mc.FileExists" class="btn btn-md btn-default btn-info"><span class="glyphicon glyphicon-thumbs-up success"></span></button>        
       </form>
     </div>
     
-    <script src="../bower_components/angularjs/angular.min.js" type="text/javascript"></script>
-    <script src="app.js" type="text/javascript"></script>
+    <script src="../bower_components/angularjs/angular.min.js" type="text/javascript"></script>    
+    <script src="app.js" type="text/javascript"></script>    
     <script src="FileWriter.js" type="text/javascript"></script>
   </body>
 </html>
