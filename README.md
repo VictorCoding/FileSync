@@ -1,2 +1,2 @@
-Welcome to FileWriter
+Welcome to FileSync
 You will love this application
