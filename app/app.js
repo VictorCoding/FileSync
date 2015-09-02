@@ -33,8 +33,8 @@
     
     mc.writeToAll = function writeToAll(text){
       if(mc.FilesToWriteTo.length > 0){
-        angular.forEach(mc.FilesToWriteTo, function(file){
-          console.log(file, text);
+        angular.forEach(mc.FilesToWriteTo, function(file){          
+          FileManager.write(file, text);
         });
       }
     };
