@@ -3,9 +3,12 @@
   
   angular
         .module('FileSync', [])
+        .constant('FIREBASEREF', function(){
+          return new Firebase('https://filesync.firebaseio.com');
+        })
         .controller('MainCtrl', MainCtrl);
             
-  function MainCtrl(FileManager, $timeout){
+  function MainCtrl(FileManager, $timeout, firebaseDB){
     var mc = this,
         fm = FileManager;
         
@@ -26,6 +29,7 @@
       
       if(mc.FileExists){
         mc.FilesToWriteTo.push(file);
+        firebaseDB.saveFilePath(file);
       }
       
     };
