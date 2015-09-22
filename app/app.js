@@ -10,6 +10,7 @@
             
   function MainCtrl(FileManager, $timeout, firebaseDB){
     var mc = this,
+        clipboard = require('nw.gui').Clipboard.get(),
         fm = FileManager;
         
     mc.checkedFile = false;
@@ -41,6 +42,16 @@
           FileManager.write(file, text);
         });
       }
+    };
+    
+    mc.paste = function paste(location){
+      
+      if(location === 'filepath'){
+        mc.FileName = clipboard.get('text');
+      } else if(location === 'content') {
+        mc.TextToWrite = clipboard.get('text');
+      }
+      
     };
     
   }

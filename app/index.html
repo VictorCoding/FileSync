@@ -14,11 +14,17 @@
       <form name="filePathsForm">
         <div class="form-group">
           <textarea class="form-control textarea-width" placeholder="Type here to once, write to ALL!" ng-model="mc.TextToWrite"></textarea><br>
-          <button class="btn btn-primary textarea-width" ng-click="mc.writeToAll(mc.TextToWrite)">Write Bitch!</button>
+          <div class="btn-group">
+            <button type="button" class="btn btn-default" ng-click="mc.paste('content')">Paste</button>
+            <button type="button" class="btn btn-primary" ng-click="mc.writeToAll(mc.TextToWrite)">Write Bitch!</button>
+          </div>
         </div>
         <div class="form-group">
           <label>File Path <input class="form-control" id="filepath" name="filepath" type="input" ng-model="mc.FileName"></label>
-          <button class="btn btn-success" ng-click="mc.addFile(mc.FileName)">Add</button>        
+          <div class="btn-group">
+            <button type="button" class="btn btn-success" ng-click="mc.addFile(mc.FileName)">Add</button>        
+            <button type="button" class="btn btn-default" ng-click="mc.paste('filepath')">Paste</button>
+          </div>
           <button ng-show="mc.checkedFile && !mc.FileExists" class="btn btn-md btn-default btn-danger"><span class="glyphicon glyphicon-thumbs-down"></span></button><br>          
         </div>              
         <span ng-show="mc.checkedFile && !mc.FileExists" class="text-danger">File does not exists in given path. Please double check.</span>
