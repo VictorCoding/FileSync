@@ -16,8 +16,13 @@ function FileManager(){
     return IsThere(name);
   }
   
-  function write(fileName, newText){    
+  function write(fileName, newText){   
+    var fileContent = fs.readFileSync(fileName, 'utf8');       
     var fileExtension = fileName.split('.')[1];
+    var pos;
+    
+    fileContent = fileContent.split('\n');
+    pos = fileContent.length;
     
     if(newText && fileName){            
       if(fileExtension === 'json'){        
@@ -26,10 +31,16 @@ function FileManager(){
         //wrap everything in double quotes because json
         //and two tabs because code styles
         //ex: "this_is_a_key": "this is a key"
-        newText = '\n\t\t"' + newText + '",';
+        newText = '\t\t"' + newText + '"';
+        
+        pos = pos - 1;
+        var lastItem = fileContent[pos - 1] + ',';
+        fileContent.splice(pos - 1, 1, lastItem);
       }      
-      newText = '\n' + newText;
+                              
+      fileContent.splice(pos, 0, newText);
+      fileContent = fileContent.join('\n');      
     }
-    fs.appendFile(fileName, newText);
+    fs.writeFileSync(fileName, fileContent);
   }
 }

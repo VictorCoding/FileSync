@@ -17,6 +17,14 @@
     mc.dupFileError = false;
     mc.FilesToWriteTo = [];    
     
+    firebaseDB.loadFiles().then(function(files){                
+      if(files){
+        angular.forEach(files, function(file){          
+          mc.FilesToWriteTo.push(file);
+        });
+      }
+    });
+    
     mc.addFile = function addFile(file){   
       if(mc.FilesToWriteTo.indexOf(file) > -1){
         mc.dupFileError = true;
