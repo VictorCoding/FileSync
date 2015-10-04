@@ -1,3 +1,6 @@
+var fs = require('fs');
+var IsThere = require('is-there');
+
 (function(){
   'use strict';
   
@@ -8,7 +11,7 @@
         })
         .controller('MainCtrl', MainCtrl);
             
-  function MainCtrl(FileManager, $timeout, firebaseDB){
+  function MainCtrl(FileManager, $timeout, firebaseDB){    
     var mc = this,
         clipboard = require('nw.gui').Clipboard.get(),
         fm = FileManager;
@@ -16,6 +19,7 @@
     mc.checkedFile = false;
     mc.dupFileError = false;
     mc.FilesToWriteTo = [];    
+    mc.englishFileContent = fs.readFileSync('/Users/vramos/Workspace/iOfficeConnect/src/main/resources/iOfficeConnect_en_US.properties', 'utf8').split('\n');
     
     firebaseDB.loadFiles().then(function(files){                
       if(files){
@@ -60,7 +64,7 @@
         mc.TextToWrite = clipboard.get('text');
       }
       
-    };
+    };        
     
   }
   

@@ -1,6 +1,3 @@
-var fs = require('fs');
-var IsThere = require('is-there');
-
 angular
       .module('FileSync')
       .service('FileManager', FileManager);

@@ -14,3 +14,9 @@
   overflow: auto; 
   background-color: lightgrey;
 }
+
+.search-results {
+  height: 300px;
+  overflow: auto; 
+  background-color: lightgrey;
+}
